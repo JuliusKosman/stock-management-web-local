@@ -1,0 +1,92 @@
+[
+  {
+    "product_id": "A388",
+    "product_name": "Amori 388",
+    "forecasted_restock": 2
+  },
+  {
+    "product_id": "ACL128",
+    "product_name": "Amori CL 128",
+    "forecasted_restock": 22
+  },
+  {
+    "product_id": "AHC806",
+    "product_name": "Amori Clipper 806",
+    "forecasted_restock": 10
+  },
+  {
+    "product_id": "K929B",
+    "product_name": "Keiko 929B",
+    "forecasted_restock": 9
+  },
+  {
+    "product_id": "A2219",
+    "product_name": "Amori 2219",
+    "forecasted_restock": 4
+  },
+  {
+    "product_id": "A288",
+    "product_name": "Amori 288",
+    "forecasted_restock": 30
+  },
+  {
+    "product_id": "ACL158",
+    "product_name": "Amori CL 158",
+    "forecasted_restock": 2
+  },
+  {
+    "product_id": "A9299B",
+    "product_name": "Amori 9299B",
+    "forecasted_restock": 5
+  },
+  {
+    "product_id": "AHD325",
+    "product_name": "Amori HD325",
+    "forecasted_restock": 3
+  },
+  {
+    "product_id": "AHD385",
+    "product_name": "Amori HD385",
+    "forecasted_restock": 4
+  },
+  {
+    "product_id": "AHD5",
+    "product_name": "Amori HD5",
+    "forecasted_restock": 30
+  },
+  {
+    "product_id": "GKEI",
+    "product_name": "Gunting Keiko",
+    "forecasted_restock": 6
+  },
+  {
+    "product_id": "ASBA1100",
+    "product_name": "Amori Sisir Blow A-1100",
+    "forecasted_restock": 5
+  },
+  {
+    "product_id": "AHD7",
+    "product_name": "Amori HD7",
+    "forecasted_restock": 0
+  },
+  {
+    "product_id": "AHC807",
+    "product_name": "Amori Clipper 807",
+    "forecasted_restock": 44
+  },
+  {
+    "product_id": "GKEIP",
+    "product_name": "Penipis Keiko",
+    "forecasted_restock": 20
+  },
+  {
+    "product_id": "ACL138",
+    "product_name": "Amori CL 138",
+    "forecasted_restock": 39
+  },
+  {
+    "product_id": "ASB222",
+    "product_name": "Amori Sisir Blow 222",
+    "forecasted_restock": 18
+  }
+]
