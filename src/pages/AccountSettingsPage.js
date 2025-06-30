@@ -7,6 +7,8 @@ export default function AccountSettingsPage() {
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
   useEffect(() => {
     fetchUser();
@@ -24,6 +26,12 @@ export default function AccountSettingsPage() {
     }
   };
 
+  const triggerPopup = (message) => {
+    setPopupMessage(message);
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 500);
+  };
+
   const handleSaveInfo = async () => {
     try {
       await axios.put(
@@ -31,7 +39,7 @@ export default function AccountSettingsPage() {
         { username },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
-      alert("Profile information updated successfully!");
+      triggerPopup("Profile information updated successfully!");
     } catch (err) {
       console.error("Failed to update info:", err);
       alert("Failed to update profile information.");
@@ -50,7 +58,7 @@ export default function AccountSettingsPage() {
         { password: newPassword },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
-      alert("Password updated successfully!");
+      triggerPopup("Password updated successfully!");
       setNewPassword("");
       setConfirmPassword("");
     } catch (err) {
@@ -115,6 +123,32 @@ export default function AccountSettingsPage() {
           </button>
         </div>
       </div>
+
+      {/* Success Popup */}
+      {showPopup && (
+        <div style={{
+          position: "fixed",
+          top: 0, left: 0, width: "100%", height: "100%",
+          backgroundColor: "rgba(0,0,0,0.5)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          zIndex: 1050
+        }}>
+          <div style={{
+            backgroundColor: "#fff",
+            padding: "2rem",
+            borderRadius: "10px",
+            boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+            textAlign: "center",
+            maxWidth: "400px",
+            width: "90%"
+          }}>
+            <h5 className="text-success">Success</h5>
+            <p>{popupMessage}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

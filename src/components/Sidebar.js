@@ -20,7 +20,6 @@ export default function Sidebar() {
     { path: "/stock-in", icon: <FaSignInAlt />, label: "Stock In" },
     { path: "/stock-out", icon: <FaSignOutAlt />, label: "Stock Out" },
     { path: "/activity-logs", icon: <FaClipboardList />, label: "Activity Logs" },
-    // { path: "/account-settings", icon: <FaCog />, label: "Settings" },
   ];
 
   return (

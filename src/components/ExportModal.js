@@ -50,7 +50,7 @@ export default function ExportModal({ data, onClose, title = "Export Data" }) {
     setTimeout(() => {
       setShowPopup(false);
       onClose();
-    }, 1500);
+    }, 500);
   };
 
   return (

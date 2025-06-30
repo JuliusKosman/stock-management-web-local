@@ -27,10 +27,8 @@ app.use('/api/forecast', forecastRoutes);
 const arimaRoutes = require('./routes/arimaRoutes');
 app.use('/api/arima', arimaRoutes);
 
-// Import dan jalankan job ARIMA
 require('./schedulers/arimaJob');
 
-// DB Connection
 db.sequelize.sync({ alter: true }).then(() => {
   console.log('Database connected & synced.');
 });

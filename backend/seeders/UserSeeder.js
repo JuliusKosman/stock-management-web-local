@@ -17,11 +17,11 @@ async function seedAdminUser() {
       password: 'admin123',
       role: 'admin'
     });
-    console.log('✅ Admin user dibuat');
+    console.log('Admin user dibuat');
 
     process.exit();
   } catch (err) {
-    console.error('❌ Gagal membuat admin user:', err.message);
+    console.error('Gagal membuat admin user:', err.message);
     process.exit(1);
   }
 }

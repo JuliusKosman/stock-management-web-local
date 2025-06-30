@@ -14,7 +14,6 @@ router.get('/logs', verifyToken, transaksiController.activityLogs);
 router.get('/out', verifyToken, transaksiController.getAllStockOut);
 router.get('/me', verifyToken, authController.me);
 
-// Endpoint untuk mengirim hasil prediksi ARIMA
 router.get("/forecast", (req, res) => {
   const filePath = path.join(__dirname, "../data/restock_forecast.json");
   try {

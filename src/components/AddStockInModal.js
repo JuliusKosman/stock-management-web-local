@@ -87,7 +87,6 @@ export default function AddStockInModal({ onClose, onSave, products }) {
         </div>
       </div>
 
-      {/* Popup dialog */}
       {showPopup && (
         <div style={{
           position: "fixed",

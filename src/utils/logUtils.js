@@ -1,7 +1,7 @@
 export function addActivityLog({ action, productID, productName, quantity }) {
     const logs = JSON.parse(localStorage.getItem("activityLogs") || "[]");
     const newLog = {
-      pic: "Admin", // nanti bisa diambil dari akun login
+      pic: "Admin",
       action,
       productID,
       productName,

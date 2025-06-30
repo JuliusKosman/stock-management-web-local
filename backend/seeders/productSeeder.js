@@ -27,10 +27,10 @@ async function seedProducts() {
     for (const p of products) {
       await db.Product.create({ ...p, jumlah: 0 });
     }
-    console.log('✅ Produk berhasil disimpan ke database.');
+    console.log('Produk berhasil disimpan ke database.');
     process.exit();
   } catch (err) {
-    console.error('❌ Gagal menyimpan produk:', err.message);
+    console.error('Gagal menyimpan produk:', err.message);
     process.exit(1);
   }
 }

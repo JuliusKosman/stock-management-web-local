@@ -10,14 +10,14 @@ cron.schedule('59 23 * * *', () => {
 
   exec(`python "${scriptPath}"`, (err, stdout, stderr) => {
     if (err) {
-      console.error("❌ Gagal retraining ARIMA:", err.message);
+      console.error("Gagal retraining ARIMA:", err.message);
       return;
     }
     if (stderr) {
-      console.error("⚠️ STDERR:", stderr);
+      console.error("STDERR:", stderr);
     }
 
-    console.log("✅ ARIMA retrained:");
+    console.log("ARIMA retrained:");
     console.log(stdout);
   });
 });

@@ -4,7 +4,6 @@ const db = require('../models');
 const fs = require('fs');
 const path = require('path');
 
-// Simpan semua produk ke dalam file JSON
 router.get('/sync-products', async (req, res) => {
   try {
     const products = await db.Product.findAll({
@@ -19,10 +18,10 @@ router.get('/sync-products', async (req, res) => {
     const filePath = path.join(__dirname, '..', 'data', 'all_products.json');
     fs.writeFileSync(filePath, JSON.stringify(formatted, null, 2));
 
-    res.json({ message: '✅ Produk berhasil disinkronkan ke all_products.json' });
+    res.json({ message: 'Produk berhasil disinkronkan ke all_products.json' });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: '❌ Gagal menyimpan produk ke file.' });
+    res.status(500).json({ message: 'Gagal menyimpan produk ke file.' });
   }
 });
 

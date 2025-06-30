@@ -1,19 +1,17 @@
 import pandas as pd
 from statsmodels.tsa.arima.model import ARIMA
+from sklearn.metrics import mean_squared_error
 import json
 import os
 
-# File Paths
 file_path = 'Dataset_Stok.xlsx'
 output_path = os.path.join(os.path.dirname(__file__), 'data', 'restock_forecast.json')
 products_path = os.path.join(os.path.dirname(__file__), 'data', 'all_products.json')
 
-# Load stock dataset
 df = pd.read_excel(file_path)
 df['Tanggal'] = pd.to_datetime(df['Tanggal'])
 df['Jumlah'] = df['Jumlah'].astype(int)
 
-# Hitung stok harian per produk
 pivot = df.pivot_table(index=['Tanggal','Kode_Barang','Nama_Barang'],
                        columns='Jenis_Transaksi',
                        values='Jumlah',
@@ -22,8 +20,9 @@ pivot = df.pivot_table(index=['Tanggal','Kode_Barang','Nama_Barang'],
 pivot['stok_harian'] = pivot['masuk'] - pivot['keluar']
 
 forecast_list = []
+all_true = []
+all_pred = []
 
-# Proses produk yang ada di dataset
 for code in pivot['Kode_Barang'].unique():
     grp = pivot[pivot['Kode_Barang'] == code]
     name = grp['Nama_Barang'].iloc[0]
@@ -33,24 +32,45 @@ for code in pivot['Kode_Barang'].unique():
         continue
 
     try:
-        model = ARIMA(time_series, order=(1, 1, 1)).fit()
-        forecast = model.forecast(steps=90)
-        pred = int(forecast.sum())
-        if pred < 0:
-            pred = 0
+        split_idx = int(len(time_series) * 0.8)
+        train = time_series.iloc[:split_idx]
+        test = time_series.iloc[split_idx:]
+
+        model = ARIMA(train, order=(1, 1, 1)).fit()
+        forecast_test = model.forecast(steps=len(test))
+
+        y_true = test.values.flatten()
+        y_pred = forecast_test
+        mse = mean_squared_error(y_true, y_pred)
+
+        all_true.extend(y_true)
+        all_pred.extend(y_pred)
+
+        full_forecast = model.forecast(steps=90)
+        pred = max(int(full_forecast.sum()), 0)
 
         forecast_list.append({
             "product_id": code,
             "product_name": name,
-            "forecasted_restock": pred
+            "forecasted_restock": pred,
+            "mse": round(mse, 2)
         })
-    except:
+
+        print(f"{name} ({code}) - MSE: {round(mse, 2)}")
+
+    except Exception as e:
+        print(f"Error processing {code} - {name}: {e}")
         continue
 
-# Rata-rata forecast untuk fallback
-average = int(sum(f['forecasted_restock'] for f in forecast_list) / len(forecast_list)) if forecast_list else 10
+if forecast_list:
+    average = int(sum(f['forecasted_restock'] for f in forecast_list) / len(forecast_list))
+    avg_mse = round(sum(f['mse'] for f in forecast_list) / len(forecast_list), 2)
+    total_mse = round(mean_squared_error(all_true, all_pred), 2)
+else:
+    average = 10
+    avg_mse = 0.0
+    total_mse = 0.0
 
-# Tambahkan produk baru dari all_products.json
 try:
     with open(products_path, 'r') as f:
         all_products = json.load(f)
@@ -64,11 +84,12 @@ for prod in all_products:
         forecast_list.append({
             "product_id": prod['product_id'],
             "product_name": prod['product_name'],
-            "forecasted_restock": average
+            "forecasted_restock": average,
+            "mse": avg_mse
         })
 
-# Simpan hasil akhir
 with open(output_path, 'w') as f:
     json.dump(forecast_list, f, indent=2)
 
+print(f"\n📊 Total MSE across all products: {total_mse}")
 print(f"✅ Forecast ARIMA selesai. Data disimpan di {output_path}")

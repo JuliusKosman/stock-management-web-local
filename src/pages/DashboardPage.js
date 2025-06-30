@@ -41,7 +41,7 @@ export default function DashboardPage() {
     setProducts(prev => [newProduct, ...prev]); // Newest on top
     setShowModal(false);
     setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 1500);
+    setTimeout(() => setShowPopup(false), 500);
   };
 
   const sortFunctions = {

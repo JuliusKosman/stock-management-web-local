@@ -14,7 +14,6 @@ exports.createProduct = async (req, res) => {
   try {
     const product = await db.Product.create({ kode_barang, nama_barang, jumlah, satuan, kategori });
 
-    // Logging
     await db.ActivityLog.create({
       user_id: req.user.id,
       aksi: 'Add Product',
@@ -38,7 +37,6 @@ exports.updateProduct = async (req, res) => {
 
     await product.update(req.body);
 
-    // Logging
     await db.ActivityLog.create({
       user_id: req.user.id,
       aksi: 'Edit Product',

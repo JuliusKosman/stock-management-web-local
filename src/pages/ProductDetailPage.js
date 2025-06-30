@@ -24,7 +24,7 @@ export default function ProductDetailPage() {
     setTimeout(() => {
       setPopupMessage("");
       navigate(-1);
-    }, 2000);
+    }, 500);
   };
 
   const handleSave = async () => {

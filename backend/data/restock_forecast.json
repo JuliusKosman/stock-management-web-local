@@ -2,91 +2,109 @@
   {
     "product_id": "A388",
     "product_name": "Amori 388",
-    "forecasted_restock": 2
+    "forecasted_restock": 27,
+    "mse": 6.53
   },
   {
     "product_id": "ACL128",
     "product_name": "Amori CL 128",
-    "forecasted_restock": 22
+    "forecasted_restock": 58,
+    "mse": 9.62
   },
   {
     "product_id": "AHC806",
     "product_name": "Amori Clipper 806",
-    "forecasted_restock": 10
+    "forecasted_restock": 42,
+    "mse": 8.76
   },
   {
     "product_id": "K929B",
     "product_name": "Keiko 929B",
-    "forecasted_restock": 9
+    "forecasted_restock": 35,
+    "mse": 6.54
   },
   {
     "product_id": "A2219",
     "product_name": "Amori 2219",
-    "forecasted_restock": 4
+    "forecasted_restock": 34,
+    "mse": 7.93
   },
   {
     "product_id": "A288",
     "product_name": "Amori 288",
-    "forecasted_restock": 30
+    "forecasted_restock": 58,
+    "mse": 6.64
   },
   {
     "product_id": "ACL158",
     "product_name": "Amori CL 158",
-    "forecasted_restock": 2
+    "forecasted_restock": 30,
+    "mse": 7.68
   },
   {
     "product_id": "A9299B",
     "product_name": "Amori 9299B",
-    "forecasted_restock": 5
+    "forecasted_restock": 42,
+    "mse": 11.55
   },
   {
     "product_id": "AHD325",
     "product_name": "Amori HD325",
-    "forecasted_restock": 3
+    "forecasted_restock": 34,
+    "mse": 7.96
   },
   {
     "product_id": "AHD385",
     "product_name": "Amori HD385",
-    "forecasted_restock": 4
+    "forecasted_restock": 32,
+    "mse": 7.86
   },
   {
     "product_id": "AHD5",
     "product_name": "Amori HD5",
-    "forecasted_restock": 30
+    "forecasted_restock": 59,
+    "mse": 6.62
   },
   {
     "product_id": "GKEI",
     "product_name": "Gunting Keiko",
-    "forecasted_restock": 6
+    "forecasted_restock": 96,
+    "mse": 12.03
   },
   {
     "product_id": "ASBA1100",
     "product_name": "Amori Sisir Blow A-1100",
-    "forecasted_restock": 5
+    "forecasted_restock": 29,
+    "mse": 5.66
   },
   {
     "product_id": "AHD7",
     "product_name": "Amori HD7",
-    "forecasted_restock": 0
+    "forecasted_restock": 13,
+    "mse": 8.57
   },
   {
     "product_id": "AHC807",
     "product_name": "Amori Clipper 807",
-    "forecasted_restock": 44
+    "forecasted_restock": 79,
+    "mse": 8.55
   },
   {
     "product_id": "GKEIP",
     "product_name": "Penipis Keiko",
-    "forecasted_restock": 20
+    "forecasted_restock": 46,
+    "mse": 5.15
   },
   {
     "product_id": "ACL138",
     "product_name": "Amori CL 138",
-    "forecasted_restock": 39
+    "forecasted_restock": 81,
+    "mse": 11.84
   },
   {
     "product_id": "ASB222",
     "product_name": "Amori Sisir Blow 222",
-    "forecasted_restock": 18
+    "forecasted_restock": 54,
+    "mse": 10.4
   }
 ]

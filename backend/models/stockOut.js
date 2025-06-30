@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   StockOut.associate = (models) => {
     StockOut.belongsTo(models.Product, {
       foreignKey: "product_id",
-      as: "product" // pastikan aliasnya sama dengan yang digunakan saat eager loading
+      as: "product"
     });
   };
 

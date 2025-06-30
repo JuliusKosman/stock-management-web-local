@@ -61,7 +61,7 @@ exports.activityLogs = async (req, res) => {
 
     res.json(logs);
   } catch (err) {
-    console.error('❌ Gagal mengambil log aktivitas:', err);
+    console.error('Gagal mengambil log aktivitas:', err);
     res.status(500).json({ message: 'Gagal mengambil log aktivitas', error: err.message });
   }
 };
@@ -98,7 +98,7 @@ exports.getAllStockOut = async (req, res) => {
     });
     res.json(data);
   } catch (err) {
-    console.error("❌ Gagal mengambil data stok keluar:", err);
+    console.error("Gagal mengambil data stok keluar:", err);
     res.status(500).json({ message: "Gagal mengambil data stok keluar", error: err.message });
   }
 };

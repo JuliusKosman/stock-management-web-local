@@ -17,8 +17,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-
-        {/* Semua halaman utama dibungkus Layout Sidebar */}
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/stock-in" element={<StockInPage />} />
