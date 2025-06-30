@@ -91,5 +91,5 @@ for prod in all_products:
 with open(output_path, 'w') as f:
     json.dump(forecast_list, f, indent=2)
 
-print(f"\n📊 Total MSE across all products: {total_mse}")
-print(f"✅ Forecast ARIMA selesai. Data disimpan di {output_path}")
+print(f"\nTotal MSE across all products: {total_mse}")
+print(f"Forecast ARIMA selesai. Data disimpan di {output_path}")
